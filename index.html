@@ -27,101 +27,349 @@
     header {
       position: sticky; top: 0; z-index: 20;
       backdrop-filter: blur(8px);
-      background: linear-gradient(180deg, rgba(15,18,32,0.9), rgba(15,18,32,0.7));
+      background: linear-gradient(180deg, rgba(15,18,32,0.95), rgba(15,18,32,0.85));
       border-bottom: 1px solid var(--border);
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 16px }
-    nav { display: flex; gap: 12px; flex-wrap: wrap }
+    
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    
+    .header-title {
+      font-size: 1rem;
+      font-weight: 600;
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .logo-container {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #183f2a;
+      border: 1px solid #2f7a49;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+    }
+    
+    .logo-placeholder {
+      color: var(--accent-2);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 4px;
+    }
+    
+    nav { 
+      display: flex; 
+      gap: 8px; 
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      padding-bottom: 4px;
+    }
+    
+    nav::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    nav::-webkit-scrollbar-track {
+      background: var(--panel);
+    }
+    
+    nav::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 2px;
+    }
+    
     nav a {
-      color: var(--text); text-decoration: none; padding: 8px 12px;
-      border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); 
+      text-decoration: none; 
+      padding: 6px 12px;
+      border: 1px solid var(--border); 
+      border-radius: 8px;
+      white-space: nowrap;
+      font-size: 0.9rem;
+      flex-shrink: 0;
     }
     nav a:hover { border-color: var(--accent); color: var(--accent) }
 
-    h2 { margin: 24px 0 8px }
-    h3 { margin: 20px 0 8px; color: var(--muted) }
+    h2 { 
+      margin: 16px 0 12px;
+      font-size: 1.3rem;
+    }
+    h3 { margin: 16px 0 8px; color: var(--muted); font-size: 1.1rem; }
 
     section {
-      margin: 24px 0; padding: 16px;
-      background: var(--panel); border: 1px solid var(--border); border-radius: 16px;
+      margin: 16px 0; 
+      padding: 16px;
+      background: var(--panel); 
+      border: 1px solid var(--border); 
+      border-radius: 16px;
     }
 
     .grid-2 {
-      display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px;
+      display: grid; 
+      grid-template-columns: repeat(2, minmax(0, 1fr)); 
+      gap: 12px;
     }
-    .grid-3 { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px }
+    .grid-3 { 
+      display: grid; 
+      grid-template-columns: repeat(3, minmax(0, 1fr)); 
+      gap: 12px;
+    }
 
-    label { display: block; font-weight: 600; margin-bottom: 6px }
-    .hint { color: var(--muted); font-size: 0.9rem }
+    label { 
+      display: block; 
+      font-weight: 600; 
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+    .hint { 
+      color: var(--muted); 
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
 
     input, select, textarea {
-      width: 100%; padding: 10px 12px;
-      background: var(--input); color: var(--text);
-      border: 1px solid var(--border); border-radius: 10px;
+      width: 100%; 
+      padding: 10px 12px;
+      background: var(--input); 
+      color: var(--text);
+      border: 1px solid var(--border); 
+      border-radius: 10px;
       outline: none;
+      font-size: 1rem;
     }
     input:focus, select:focus, textarea:focus { border-color: var(--accent) }
 
-    .row { display: flex; gap: 10px; align-items: center }
+    .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
     .pill {
-      padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px;
+      padding: 4px 8px; 
+      border: 1px solid var(--border); 
+      border-radius: 999px;
       color: var(--muted);
+      font-size: 0.8rem;
+      white-space: nowrap;
     }
 
     .btn {
-      padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border);
-      background: #22264a; color: var(--text); cursor: pointer;
+      padding: 10px 14px; 
+      border-radius: 12px; 
+      border: 1px solid var(--border);
+      background: #22264a; 
+      color: var(--text); 
+      cursor: pointer;
+      font-size: 0.95rem;
+      white-space: nowrap;
     }
     .btn:hover { border-color: var(--accent); color: var(--accent) }
     .btn-primary { background: #263b58; border-color: #284b75 }
     .btn-success { background: #214b2e; border-color: #2f7a49 }
     .btn-danger { background: #4b2121; border-color: #7a2f2f; color: #ffb3b3 }
-    .btn-ghost { background: transparent }
+    .btn-sm { padding: 6px 10px; font-size: 0.85rem; }
 
-    table { width: 100%; border-collapse: collapse; margin-top: 12px }
-    th, td { border-bottom: 1px solid var(--border); padding: 10px; text-align: left }
-    th { color: var(--muted); font-weight: 700 }
+    /* Mobile-optimized table */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 12px -16px;
+      padding: 0 16px;
+    }
+    
+    table { 
+      width: 100%; 
+      border-collapse: collapse;
+      min-width: 800px;
+    }
+    th, td { 
+      border-bottom: 1px solid var(--border); 
+      padding: 10px 8px; 
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    th { 
+      color: var(--muted); 
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+      background: var(--panel);
+      z-index: 1;
+    }
     tfoot td { font-weight: 700 }
 
-    .tabs { display: flex; gap: 8px; margin: 12px 0 }
-    .tab {
-      padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px;
-      cursor: pointer; color: var(--muted)
+    .unit-input-group {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      min-width: 140px;
     }
-    .tab.active { color: var(--text); border-color: var(--accent); background: #202545 }
+    
+    .unit-input-group input {
+      flex: 1;
+      min-width: 60px;
+    }
+    
+    .unit-input-group select {
+      flex-shrink: 0;
+      width: 65px;
+      padding: 8px 4px;
+    }
 
     .badge { padding: 4px 8px; border-radius: 999px; font-size: 0.85rem }
     .badge-ok { background: #183f2a; color: var(--accent-2); border: 1px solid #2f7a49 }
     .badge-warn { background: #3f1c1c; color: #ffb1b1; border: 1px solid #7a2f2f }
 
-    .split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px }
-    @media (max-width: 900px) {
-      .grid-2, .grid-3, .split { grid-template-columns: 1fr }
-      nav { overflow-x: auto }
-    }
     .error { color: var(--danger); font-size: 0.9rem; margin-top: 4px; }
     .success { color: var(--accent-2); font-size: 0.9rem; margin-top: 4px; }
+    
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .container { padding: 12px; }
+      
+      .header-top {
+        margin-bottom: 8px;
+      }
+      
+      .header-title {
+        font-size: 0.9rem;
+        line-height: 1.3;
+      }
+      
+      .logo-container {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .pill {
+        display: none;
+      }
+      
+      nav {
+        gap: 6px;
+        margin-bottom: 4px;
+      }
+      
+      nav a {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+      }
+      
+      section {
+        padding: 12px;
+        margin: 12px 0;
+        border-radius: 12px;
+      }
+      
+      h2 {
+        font-size: 1.2rem;
+        margin: 12px 0 10px;
+      }
+      
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      label {
+        font-size: 0.9rem;
+      }
+      
+      input, select, textarea {
+        padding: 10px;
+        font-size: 16px; /* Prevents zoom on iOS */
+      }
+      
+      .table-wrapper {
+        margin: 12px -12px;
+        padding: 0 12px;
+      }
+      
+      table {
+        font-size: 0.85rem;
+      }
+      
+      th, td {
+        padding: 8px 6px;
+      }
+      
+      .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+      }
+      
+      .row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .row .btn {
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header-title {
+        font-size: 0.85rem;
+      }
+      
+      .logo-container {
+        width: 45px;
+        height: 45px;
+      }
+      
+      nav a {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+      }
+      
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <div class="row" style="justify-content: space-between;">
-        <div class="row" style="gap: 12px;">
+      <div class="header-top">
+        <div class="header-title">
           <strong>Application for the permit to Import Meat, Meat Products and Edible Offal</strong>
           <span class="pill">Fill all the details</span>
         </div>
-        <div class="row">
-          <span class="badge badge-ok">DAPH</span>
+        <div class="logo-container">
+          <!-- STEP 1: Replace this div with an img tag -->
+          <!-- Your logo image should be uploaded to the same folder as this HTML file -->
+          <!-- Then uncomment the line below and replace 'your-logo.png' with your actual filename -->
+          <!-- <img src="your-logo.png" alt="DAPH Logo" /> -->
+          
+          <!-- STEP 2: Delete this placeholder div once you add the image -->
+          <img src="daphlogo.png" alt="DAPH Logo" />
         </div>
       </div>
-      <nav style="margin-top: 10px;">
-        <a href="#importer">Importer details</a>
-        <a href="#exporter">Exporter details</a>
-        <a href="#origin">Origin details</a>
-        <a href="#transshipment">Transshipment Details</a>
-        <a href="#meat">Meat products details</a>
-        <a href="#summary">Summary & submit</a>
+      <nav>
+        <a href="#importer">Importer</a>
+        <a href="#exporter">Exporter</a>
+        <a href="#origin">Origin</a>
+        <a href="#transshipment">Transshipment</a>
+        <a href="#meat">Meat products</a>
+        <a href="#summary">Summary</a>
       </nav>
     </div>
   </header>
@@ -276,30 +524,32 @@
     <section id="meat">
       <h2>Meat products details</h2>
 
-      <table id="meatTable">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Meat type</th>
-            <th>Product name</th>
-            <th>Product description</th>
-            <th>Unit weight</th>
-            <th>Qty.</th>
-            <th>Total weight (kg)</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Dynamic rows will be added here -->
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="6" style="text-align:right;font-weight:bold;">Grand total (kg)</td>
-            <td id="grandTotal">0.00</td>
-            <td></td>
-          </tr>
-        </tfoot>
-      </table>
+      <div class="table-wrapper">
+        <table id="meatTable">
+          <thead>
+            <tr>
+              <th style="min-width: 40px;">No</th>
+              <th style="min-width: 100px;">Meat type</th>
+              <th style="min-width: 120px;">Product name</th>
+              <th style="min-width: 140px;">Product description</th>
+              <th style="min-width: 140px;">Unit weight</th>
+              <th style="min-width: 60px;">Qty.</th>
+              <th style="min-width: 80px;">Total (kg)</th>
+              <th style="min-width: 90px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamic rows will be added here -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="6" style="text-align:right;font-weight:bold;">Grand total (kg)</td>
+              <td id="grandTotal">0.00</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
 
       <div class="row" style="margin-top:10px;">
         <button class="btn" type="button" id="addMeatRow">Add row</button>
@@ -311,7 +561,7 @@
     <section id="summary">
       <h2>Summary & submit</h2>
       <div id="summaryBox" class="hint">Click "Generate summary" to preview your form data before submission.</div>
-      <div class="row" style="margin-top:10px; gap: 16px;">
+      <div class="row" style="margin-top:10px; gap: 12px;">
         <button class="btn btn-primary" type="button" id="generateSummary">Generate summary</button>
         <button class="btn btn-success" type="button" id="submitAll">Submit application</button>
       </div>
@@ -344,9 +594,9 @@
     function convertToKg(value, unit) {
       const numValue = parseFloat(value) || 0;
       switch (unit) {
-        case "g": return numValue / 1000;   // grams to kg
-        case "t": return numValue * 1000;   // tons to kg
-        default: return numValue;           // already kg
+        case "g": return numValue / 1000;
+        case "t": return numValue * 1000;
+        default: return numValue;
       }
     }
 
@@ -409,8 +659,8 @@
         <td><input name="productName" placeholder="e.g., Chicken Breast" required /></td>
         <td><input name="productDesc" placeholder="Product description" /></td>
         <td>
-          <div style="display:flex; gap:4px; align-items:center;">
-            <input type="number" name="unitWeight" step="0.01" min="0" value="0" style="width:80px;" required />
+          <div class="unit-input-group">
+            <input type="number" name="unitWeight" step="0.01" min="0" value="0" required />
             <select name="unitType">
               <option value="kg">kg</option>
               <option value="g">g</option>
@@ -472,12 +722,10 @@
         }
       });
 
-      // Check if at least one meat product row exists
       if (meatTableBody.children.length === 0) {
         errors.push("At least one meat product must be added");
       }
 
-      // Validate email fields
       const emailFields = document.querySelectorAll('input[type="email"]');
       emailFields.forEach(field => {
         if (field.value && !field.checkValidity()) {
@@ -485,7 +733,6 @@
         }
       });
 
-      // Validate dates
       const exportDate = document.querySelector("#exportDate").value;
       const arrivalDate = document.querySelector("#arrivalDate").value;
       
@@ -541,7 +788,6 @@
         }
       };
 
-      // Collect meat products data
       const rows = meatTableBody.querySelectorAll("tr");
       rows.forEach((row, index) => {
         data.meatProducts.push({
@@ -584,18 +830,15 @@
     document.querySelector("#submitAll").addEventListener("click", async () => {
       clearStatus();
       
-      // Validate form
       const errors = validateForm();
       if (errors.length > 0) {
         showError("Please fix the following errors:<br>• " + errors.join("<br>• "));
         return;
       }
 
-      // Collect data and prepare FormData
       const data = collectFormData();
       const formData = new FormData();
       
-      // Add importer details
       formData.append("impCompany", data.importer.company);
       formData.append("impAddr1", data.importer.address1);
       formData.append("impAddr2", data.importer.address2);
@@ -603,7 +846,6 @@
       formData.append("impEmail", data.importer.email);
       formData.append("impPhone", data.importer.whatsapp);
       
-      // Add exporter details
       formData.append("expCompany", data.exporter.company);
       formData.append("expAddr1", data.exporter.address1);
       formData.append("expAddr2", data.exporter.address2);
@@ -611,7 +853,6 @@
       formData.append("expEmail", data.exporter.email);
       formData.append("expWhatsApp", data.exporter.whatsapp);
       
-      // Add origin details
       formData.append("originCountry", data.origin.country);
       formData.append("oriCompanyname", data.origin.company);
       formData.append("oriAddr1", data.origin.address1);
@@ -619,7 +860,6 @@
       formData.append("oriPostalcode", data.origin.postalCode);
       formData.append("oriRegno", data.origin.regNumber);
       
-      // Add transshipment details
       formData.append("embarkation", data.transshipment.embarkation);
       formData.append("disembarkation", data.transshipment.disembarkation);
       formData.append("exportDate", data.transshipment.exportDate);
@@ -629,7 +869,6 @@
       formData.append("route", data.transshipment.route);
       formData.append("processing", data.transshipment.processing);
 
-      // Add each meat product as separate fields
       data.meatProducts.forEach((product, index) => {
         formData.append(`meatProduct_${index + 1}_number`, product.number);
         formData.append(`meatProduct_${index + 1}_meatType`, product.meatType);
@@ -641,10 +880,7 @@
         formData.append(`meatProduct_${index + 1}_totalWeight`, product.totalWeight);
       });
       
-      // Add meat products as JSON string
       formData.append("meatProducts", JSON.stringify(data.meatProducts));
-      
-      // Add summary
       formData.append("totalWeight", data.summary.totalWeight);
       formData.append("productCount", data.summary.productCount);
       formData.append("submissionTime", data.summary.submissionTime);
@@ -661,7 +897,6 @@
 
         showSuccess("✅ Application submitted successfully!");
         
-        // Optionally clear form or redirect
         setTimeout(() => {
           if (confirm("Form submitted successfully! Would you like to reset the form for a new application?")) {
             location.reload();
@@ -693,4 +928,5 @@
     });
   </script>
 </body>
+
 </html>
